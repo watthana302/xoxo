@@ -1,136 +1,38 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="styles.css">
-  <script src="script.js" defer></script>
-  <title>tictactoe</title>
+    <title>Ultimate Tic Tac Toe</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script type="text/javascript" src="script.js"></script>
 </head>
 <body>
-  <div class="container">
-    <div class="board" id="board">
-      <div class="board1" board1>
-        <div class="cell" data-cell></div>
-        <div class="cell" data-cell></div>
-        <div class="cell" data-cell></div>
-        <div class="cell" data-cell></div>
-        <div class="cell" data-cell></div>
-        <div class="cell" data-cell></div>
-        <div class="cell" data-cell></div>
-        <div class="cell" data-cell></div>
-        <div class="cell" data-cell></div>
-      </div>
-      <div class="board1" board1>
-        <div class="cell" data-cell></div>
-        <div class="cell" data-cell></div>
-        <div class="cell" data-cell></div>
-        <div class="cell" data-cell></div>
-        <div class="cell" data-cell></div>
-        <div class="cell" data-cell></div>
-        <div class="cell" data-cell></div>
-        <div class="cell" data-cell></div>
-        <div class="cell" data-cell></div>
-      </div>
-      <div class="board1" board1>
-        <div class="cell" data-cell></div>
-        <div class="cell" data-cell></div>
-        <div class="cell" data-cell></div>
-        <div class="cell" data-cell></div>
-        <div class="cell" data-cell></div>
-        <div class="cell" data-cell></div>
-        <div class="cell" data-cell></div>
-        <div class="cell" data-cell></div>
-        <div class="cell" data-cell></div>
-      </div>
-      <div class="board1" board1>
-        <div class="cell" data-cell></div>
-        <div class="cell" data-cell></div>
-        <div class="cell" data-cell></div>
-        <div class="cell" data-cell></div>
-        <div class="cell" data-cell></div>
-        <div class="cell" data-cell></div>
-        <div class="cell" data-cell></div>
-        <div class="cell" data-cell></div>
-        <div class="cell" data-cell></div>
-      </div>
-      <div class="board1" board1>
-        <div class="cell" data-cell></div>
-        <div class="cell" data-cell></div>
-        <div class="cell" data-cell></div>
-        <div class="cell" data-cell></div>
-        <div class="cell" data-cell></div>
-        <div class="cell" data-cell></div>
-        <div class="cell" data-cell></div>
-        <div class="cell" data-cell></div>
-        <div class="cell" data-cell></div>
-      </div>
-      <div class="board1" board1>
-        <div class="cell" data-cell></div>
-        <div class="cell" data-cell></div>
-        <div class="cell" data-cell></div>
-        <div class="cell" data-cell></div>
-        <div class="cell" data-cell></div>
-        <div class="cell" data-cell></div>
-        <div class="cell" data-cell></div>
-        <div class="cell" data-cell></div>
-        <div class="cell" data-cell></div>
-      </div>
-      <div class="board1" board1>
-        <div class="cell" data-cell></div>
-        <div class="cell" data-cell></div>
-        <div class="cell" data-cell></div>
-        <div class="cell" data-cell></div>
-        <div class="cell" data-cell></div>
-        <div class="cell" data-cell></div>
-        <div class="cell" data-cell></div>
-        <div class="cell" data-cell></div>
-        <div class="cell" data-cell></div>
-      </div>
-      <div class="board1" board1>
-        <div class="cell" data-cell></div>
-        <div class="cell" data-cell></div>
-        <div class="cell" data-cell></div>
-        <div class="cell" data-cell></div>
-        <div class="cell" data-cell></div>
-        <div class="cell" data-cell></div>
-        <div class="cell" data-cell></div>
-        <div class="cell" data-cell></div>
-        <div class="cell" data-cell></div>
-      </div>
-      <div class="board1" board1>
-        <div class="cell" data-cell></div>
-        <div class="cell" data-cell></div>
-        <div class="cell" data-cell></div>
-        <div class="cell" data-cell></div>
-        <div class="cell" data-cell></div>
-        <div class="cell" data-cell></div>
-        <div class="cell" data-cell></div>
-        <div class="cell" data-cell></div>
-        <div class="cell" data-cell></div>
-      </div>
+  <div id="container">
+    <div class="info">
+      <h2>กติกา</h2>
+      
+
+      <p>เกมจะเรื่มต้นโดยผู้ที่คนเริ่มสีก่อรและจะสามารถเลือกกดได้ในช่องทั้งหมด81ช่อง และรอบต่อไปจะสุ่มพื่นที่ให้ลงเพื่อไม่ให้ผู้เล่นลงที่เดิม</p>
+
+      <p>หากมีผู้ชนะในพื้นที่นั้นจะไม่สามารถกดต่อได้อีกและจะแสดงสีของผุ้ชนะ</p>
+
+      <p>การเล่นเกมจะสิ้นสุดลงเมื่อผู้เล่นฝ่ายใดฝ่ายหนึ่งชนะในกระดานทั้งหมด หรือ หากไม่สามารถกดต่อได้ ซึ่งในกรณีนี้เกมจะเสมอกัน</p>
 
       
-      
+      <button class="info-close">Close</button>
+    </div>
+    <div id="game">
+      <div class="game-overlay"></div>
+      <div id="winner">
+        <h1></h1>
       </div>
-    
-  </div>
-  <div class="checkboard" checkboard>
-    <div class="checkcell" check-cell></div>
-    <div class="checkcell" check-cell></div>
-    <div class="checkcell" check-cell></div>
-    <div class="checkcell" check-cell></div>
-    <div class="checkcell" check-cell></div>
-    <div class="checkcell" check-cell></div>
-    <div class="checkcell" check-cell></div>
-    <div class="checkcell" check-cell></div>
-    <div class="checkcell" check-cell></div>
-  </div>
-  
-  <div class="winning-message" id="winningMessage">
-    <div data-winning-message-text></div>
-    <button id="restartButton">Restart</button>
+    </div>
+   
+    <div id="options">
+      <button class="btn-info">How to Play</button>
+      <button class="player1">Blue starts</button>
+      <button class="player2">Red starts</button>
+    </div>
+   
+     
   </div>
 </body>
-</html>
