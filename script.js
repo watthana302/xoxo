@@ -96,7 +96,7 @@ $(document).ready(function() {/*DNT*/
         isGameDraw(blueWinsGame);
   
         /*switch player after move*/
-        toogleplayer()
+        togglePlayer()
   
       /*if player2 is active*/
       } else if ($('.player2').hasClass('current')) {
@@ -132,7 +132,7 @@ $(document).ready(function() {/*DNT*/
         isGameDraw(redWinsGame);
   
         /*switch player after move*/
-        toogleplayer()
+        togglePlayer()
   
       /*if no player is active, a starting player has not yet been picked => display alert*/
       } else {
@@ -207,9 +207,32 @@ $(document).ready(function() {/*DNT*/
       /*if no one wins*/
     }
   }
-  function toogleplayer(){
+  function togglePlayer() {
     $('.player1').toggleClass('current');
+    $('.player2').toggleClass('current');
+  
+    let remainingTime = 10; // Initial remaining time in seconds
+  
+    // Update the time display initially
+    $('.timer').text(`Time remaining: ${remainingTime} seconds`);
+  
+    // Set a timer to update the time display every second
+    const timer = setInterval(() => {
+      remainingTime--;
+      $('.timer').text(`Time remaining: ${remainingTime} seconds`);
+  
+      if (remainingTime <= 0) {
+        $('.player1').toggleClass('current'); 
         $('.player2').toggleClass('current');
+        clearInterval(timer); // Clear the timer when time is up
+        togglePlayer(); // Automatically toggle the player
+      }
+    }, 1000);
+  
+    // Event listener for player click
+    $('.player1, .player2').on('click', function() {
+      clearInterval(timer); // Clear the timer if a player clicks within 10 seconds
+    });
   }
   
   });/*DNT*/
