@@ -24,7 +24,7 @@ button {
 }
 
 .blue {
-  background-color: #00f;
+  background-color: rgb(69, 69, 193);
 }
 
 .draw-overlay {
@@ -52,7 +52,7 @@ button {
 }
 
 .btn-info {
-  background-color: purple;
+  background-color: rgb(186, 33, 186);
 }
 
 .info {
@@ -72,7 +72,7 @@ button {
 }
 
 .info-close {
-  background-color: purple;
+  background-color: rgb(179, 42, 179);
   margin-left: 44%;
 }
 
@@ -96,11 +96,11 @@ button {
 }
 
 .player1 {
-  background-color: #00f;
+  background-color: rgb(63, 63, 208);
 }
 
 .player2 {
-  background-color: #f00;
+  background-color: rgb(155, 22, 22);
 }
 
 .red {

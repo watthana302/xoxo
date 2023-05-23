@@ -210,29 +210,6 @@ $(document).ready(function() {/*DNT*/
   function togglePlayer() {
     $('.player1').toggleClass('current');
     $('.player2').toggleClass('current');
-  
-    let remainingTime = 10; // Initial remaining time in seconds
-  
-    // Update the time display initially
-    $('.timer').text(`Time remaining: ${remainingTime} seconds`);
-  
-    // Set a timer to update the time display every second
-    const timer = setInterval(() => {
-      remainingTime--;
-      $('.timer').text(`Time remaining: ${remainingTime} seconds`);
-  
-      if (remainingTime <= 0) {
-        $('.player1').toggleClass('current'); 
-        $('.player2').toggleClass('current');
-        clearInterval(timer); // Clear the timer when time is up
-        togglePlayer(); // Automatically toggle the player
-      }
-    }, 1000);
-  
-    // Event listener for player click
-    $('.player1, .player2').on('click', function() {
-      clearInterval(timer); // Clear the timer if a player clicks within 10 seconds
-    });
   }
   
   });/*DNT*/
