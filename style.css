@@ -93,6 +93,7 @@
     margin: 100px auto;
     display: flex;
       justify-content: space-around;
+      
   }
   
   #container.active {
@@ -129,8 +130,34 @@
     text-align: center;
     
   }
-  .timer{
-    font-size: 40px;
-    color: #fff;
+  .player-zone {
+    width: 12%;
+    border: 2.5px solid rgb(0, 0, 0);
   }
-  
+
+  .player-1 {
+    height: 50%;
+    border-bottom: 2.5px solid rgb(0, 0, 0);
+  }
+  .player-2 {
+    height: 50%;
+    
+  }
+
+  .player-title {
+    text-align: center;
+    color: rgb(255, 255, 255);
+  }
+
+  .player-score {
+    text-align: center;
+    color: rgb(255, 255, 255);
+    font-size: 68px;
+    margin-top: 50px;
+  }
+  .newgame{
+    background-color: green;
+  }
+ .restart-button{
+  background-color: green;
+ }

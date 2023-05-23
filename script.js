@@ -15,15 +15,21 @@ $(document).ready(function() {/*DNT*/
   /*clicking on player1 button gives class current to player 1*/
   $('.player1').click(function() {
     $(this).addClass('current');
+    $('.player-1').addClass('blue');
+    $('.player-2').addClass('red');
   });
   
   /*clicking on player2 button gives class current to player 2*/
   $('.player2').click(function() {
     $(this).addClass('current');
+    $('.player-1').addClass('red');
+    $('.player-2').addClass('blue');
   });
   
   
-  
+  $('.newgame').click(function() {
+    newGame();
+  });
   /** GLOBAL VARIABLES for winning conditions **/
   var blueMoves = [
     [],[],[],[],[],[],[],[],[]
@@ -195,10 +201,39 @@ $(document).ready(function() {/*DNT*/
       $('#winner').show();
       /*if no one wins*/
     }
-  }
+    $('#winner').append('<button class="restart-button">Restart Game</button>');
+  
+  /* Attach event listener to Restart Game button */
+  $('.restart-button').click(function() {
+    newGame(); // Call the newGame() function to restart the game
+    $('#winner').hide(); // Hide the winner message
+  });
+}
+  
   function togglePlayer() {
     $('.player1').toggleClass('current');
     $('.player2').toggleClass('current');
   }
+  function newGame() {
+    blueMoves = [[],[],[],[],[],[],[],[],[]];
+    redMoves = [[],[],[],[],[],[],[],[],[]];
+    boxLimit = [[],[],[],[],[],[],[],[],[]];
+    blueGlobal = [];
+    redGlobal = [];
+    globalLimit = [];
+    blueWinsGame = false;
+    redWinsGame = false;
+    $('.cell').removeClass('blue red');
+    $('.game-overlay').removeClass('blue-overlay red-overlay');
+    $('.overlay').removeClass('blue-overlay red-overlay').addClass('gray-overlay').hide();
+    $('.player1').removeClass('current');
+    $('.player2').removeClass('current');
+    $('.player-1').removeClass('red blue');
+    $('.player-2').removeClass('red blue');
+  }
   
+  // กำหนดให้ปุ่ม "New Game" มีการเชื่อมต่อกับฟังก์ชัน newGame()
+  $('.new-game-button').click(function() {
+    newGame();
+  });
   });/*DNT*/

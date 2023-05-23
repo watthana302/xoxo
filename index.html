@@ -32,21 +32,40 @@
 </head>
 <body>
     <div id="container">
+        
+       
+        <div id="options">
+          <button class="newgame">newgame</button>
+          <button class="player1">blue starts</button>
+          <button class="player2">Red starts</button>
+          <p class="timer"></p>
+        </div>
+       
         <div id="game">
           <div class="game-overlay"></div>
           <div id="winner">
             <h1></h1>
           </div>
         </div>
-       
-        <div id="options">
-          
-          <button class="player1">Blue starts</button>
-          <button class="player2">Red starts</button>
-          <p class="timer"></p>
+
+        <div class="player-zone">
+          <div class="player player-1">
+            <div class="player-title">
+              Player 1
+            </div>
+            <div class="player-score">
+              0
+            </div>
+          </div>
+          <div class="player player-2">
+            <div class="player-title">
+              Player 2
+            </div>
+            <div class="player-score">
+              0
+            </div>
+          </div>
         </div>
-       
-         
       </div>
     <audio id="myAudio" src="limbo.mp3" loop></audio>
     <div class="audio-controls">
