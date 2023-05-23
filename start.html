@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+#gameContainer {
+  text-align: center;
+  margin-top: 20px;
+}
+
+#startButton {
+  background-color: #000000;
+  color: #fffcfc;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+}
+#howtoplaybutton {
+  background-color: #000000;
+  color: #fffcfc;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+  background-color: #f0f0f0;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 600px;
+}
+
+.close-button {
+  color: #867f7f;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close-button:hover {
+  color: #000;
+}
+    </style>
+</head>
+<body>
+
+    <div id="gameContainer">
+        <button id="startButton" onclick="startGame()">Start Game</button>
+
+        <button id="howtoplaybutton"onclick="showInstructions()">How to Play</button>
+        <div id="instructionsModal" class="modal">
+          <div class="modal-content">
+            <span class="close-button" onclick="hideInstructions()">&times;</span>
+            <h2>กติไก่</h2>
+            <p>เกมจะเรื่มต้นโดยผู้ที่คนกดเริ่มสีก่อนและจะสามารถเลือกกดได้ในช่องทั้งหมด81ช่อง และรอบต่อไปจะสุ่มพื่นที่ให้ลงเพื่อไม่ให้ผู้เล่นลงที่เดิม</p>
+
+          <p>หากมีผู้ชนะในพื้นที่นั้นจะไม่สามารถกดต่อได้อีกและจะแสดงสีของผุ้ชนะ</p>
+
+          <p>การเล่นเกมจะสิ้นสุดลงเมื่อผู้เล่นฝ่ายใดฝ่ายหนึ่งชนะในกระดานทั้งหมด หรือ หากไม่สามารถกดต่อได้ ซึ่งในกรณีนี้เกมจะเสมอกัน</p>
+          </div>
+        </div>
+      </div>
+      
+</body>
+<script>
+
+function startGame() {
+  window.location.href = "index.html";
+}
+
+function showInstructions() {
+  var modal = document.getElementById("instructionsModal");
+  modal.style.display = "block";
+}
+
+function hideInstructions() {
+  var modal = document.getElementById("instructionsModal");
+  modal.style.display = "none";
+}
+</script>
+</html>

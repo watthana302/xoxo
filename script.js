@@ -22,18 +22,7 @@ $(document).ready(function() {/*DNT*/
     $(this).addClass('current');
   });
   
-  /** SHOW/HIDE INFO **/
-  /*show info when clicking on instructions button*/
-  $('.btn-info').click(function() {
-    $('#container').addClass('active');
-    $('.info').addClass('active');
-  });
   
-  /*hide info when clicking on close button*/
-  $('.info-close').click(function() {
-    $('#container').removeClass('active');
-    $('.info').removeClass('active');
-  });
   
   /** GLOBAL VARIABLES for winning conditions **/
   var blueMoves = [
