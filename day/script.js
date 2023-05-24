@@ -28,6 +28,7 @@ $(document).ready(function() {/*DNT*/
   
   
   $('.newgame').click(function() {
+    bruhsound.play();
     newGame();
   });
   /** GLOBAL VARIABLES for winning conditions **/
@@ -201,11 +202,12 @@ $(document).ready(function() {/*DNT*/
       $('#winner').show();
       /*if no one wins*/
     }
+    winnersound.play();
     $('#winner').append('<button class="restart-button">Restart Game</button>');
   
   /* Attach event listener to Restart Game button */
   $('.restart-button').click(function() {
-    newGame(); // Call the newGame() function to restart the game
+    location.reload();// Call the newGame() function to restart the game
     $('#winner').hide(); // Hide the winner message
   });
 }
@@ -233,7 +235,5 @@ $(document).ready(function() {/*DNT*/
   }
   
   // กำหนดให้ปุ่ม "New Game" มีการเชื่อมต่อกับฟังก์ชัน newGame()
-  $('.new-game-button').click(function() {
-    newGame();
-  });
+  
   });/*DNT*/
