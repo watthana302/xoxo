@@ -9,6 +9,7 @@
   <link rel="stylesheet" type="text/css" href="style.css" />
   <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
   <script type="text/javascript" src="script.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <style>
     #playButton {
       background-color: #ffffff;
@@ -27,7 +28,9 @@
   </style>
 </head>
 <header>
-
+  <audio id="clickSound" src="click.mp3" preload="auto"></audio>
+  <audio id="winnersound" src="winnersound.mp3" preload="auto"></audio>
+  <audio id="bruhsound" src="bruh.mp3" preload="auto"></audio>
   <div class="top">
 
     <div>
@@ -40,7 +43,7 @@
         <img src="reD.png" alt="ชื่อ">
       </div>
     </div>
-    <audio id="myAudio" src="limbo.mp3" loop></audio>
+    <audio id="myAudio" src="soundpink.mp3" loop></audio>
     <div class="audio-controls">
       <button id="playButton" onclick="toggleAudio()">Play/Pause</button>
     </div>
@@ -56,16 +59,19 @@
 
 
     <div id="options">
-      <button class="newgame">newgame</button>
-      <button class="player1">blue starts</button>
-      <button class="player2">Red starts</button>
-      <p class="timer"></p>
+      <button class="newgame">Newgame</button>
+      <button class="player1">Blue starts</button>
+      <button class="player2">Ded starts</button>
     </div>
     <div class="ongame">
       <div id="game">
         <div class="game-overlay"></div>
         <div id="winner">
           <h1></h1>
+          <div class="pyro">
+  <div class="before"></div>
+  <div class="after"></div>
+</div>
         </div>
       </div>
     </div>
@@ -403,7 +409,7 @@
   </div>
 </footer>
 <script>
-
+  
   var audio = document.getElementById("myAudio");
   var playButton = document.getElementById("playButton");
 
@@ -414,17 +420,31 @@
   function toggleAudio() {
     if (audio.paused) {
       audio.play();
-      playButton.innerHTML = "Pause";
+      playButton.innerHTML = "🔇Pause";
     } else {
       audio.pause();
-      playButton.innerHTML = "Play";
+      playButton.innerHTML = "🔊Play";
     }
   }
 
   window.addEventListener("load", function () {
+    audio.volume=0.1;
     audio.play();
     playButton.innerHTML = "Pause";
   });
+
+
+  $(document).ready(function() {
+      
+      var clickSound = document.getElementById("clickSound");
+      var winnersound =document.getElementById("winnersound");
+      var bruhsound =document.getElementById("bruhsound");
+      
+
+      $(document).on("click", function() {
+        clickSound.play();
+      });
+    });
 </script>
 
 </html>
