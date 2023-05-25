@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">>
+    <title>Document</title>
+    <style>
+      
+  @import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@700&family=Foldit&family=Righteous&family=Rubik+Puddles&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@700&family=Foldit&family=Righteous&family=Rubik+Puddles&family=Urbanist:wght@700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@700&family=Foldit&family=Outfit&family=Righteous&family=Rubik+Puddles&family=Sigmar&family=Urbanist:wght@700&display=swap');
+
+/* Cool infinite background scrolling animation.
+ * Twitter: @kootoopas
+ */
+/* Exo thin font from Google. */
+@import url(https://fonts.googleapis.com/css?family=Exo:100);
+/* Background data (Original source: https://subtlepatterns.com/grid-me/) */
+/* Animations */
+@-webkit-keyframes bg-scrolling-reverse {
+  100% {
+    background-position: 50px 50px;
+  }
+}
+@-moz-keyframes bg-scrolling-reverse {
+  100% {
+    background-position: 50px 50px;
+  }
+}
+@-o-keyframes bg-scrolling-reverse {
+  100% {
+    background-position: 50px 50px;
+  }
+}
+@keyframes bg-scrolling-reverse {
+  100% {
+    background-position: 50px 50px;
+  }
+}
+@-webkit-keyframes bg-scrolling {
+  0% {
+    background-position: 50px 50px;
+  }
+}
+@-moz-keyframes bg-scrolling {
+  0% {
+    background-position: 50px 50px;
+  }
+}
+@-o-keyframes bg-scrolling {
+  0% {
+    background-position: 50px 50px;
+  }
+}
+@keyframes bg-scrolling {
+  0% {
+    background-position: 50px 50px;
+  }
+}
+/* Main styles */
+body {
+  background-color: violet;
+  color: #ffffff;
+  font: 400 16px/1.5 exo, ubuntu, "segoe ui", helvetica, arial, sans-serif;
+  text-align: center;
+  /* img size is 50x50 */
+  background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAIAAACRXR/mAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1MAAA6mAAADqYAAAXb5JfxUYAAABnSURBVHja7M5RDYAwDEXRDgmvEocnlrQS2SwUFST9uEfBGWs9c97nbGtDcquqiKhOImLs/UpuzVzWEi1atGjRokWLFi1atGjRokWLFi1atGjRokWLFi1af7Ukz8xWp8z8AAAA//8DAJ4LoEAAlL1nAAAAAElFTkSuQmCC") repeat 0 0;
+  -webkit-animation: bg-scrolling-reverse 0.92s infinite;
+  /* Safari 4+ */
+  -moz-animation: bg-scrolling-reverse 0.92s infinite;
+  /* Fx 5+ */
+  -o-animation: bg-scrolling-reverse 0.92s infinite;
+  /* Opera 12+ */
+  animation: bg-scrolling-reverse 0.92s infinite;
+  /* IE 10+ */
+  -webkit-animation-timing-function: linear;
+  -moz-animation-timing-function: linear;
+  -o-animation-timing-function: linear;
+  animation-timing-function: linear;
+}
+
+
+
+
+
+
+
+#startButton {
+  font-family: 'Outfit', sans-serif;
+  background-color: #000000;
+  color: #fffcfc;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  margin-bottom: 5px;
+}
+#howtoplaybutton {
+  font-family: 'Outfit', sans-serif;
+  background-color: #000000;
+  color: #fffcfc;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+body {
+ margin-left: 0px;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+  background-color: #f0f0f0;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 600px;
+}
+
+.close-button {
+  color: #867f7f;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close-button:hover {
+  color: #000;
+}
+
+.x {
+  font-size: 8em;
+  text-align: center;
+  font-family: 'Rubik Puddles', cursive;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.x h1{
+  margin-top: 0px;
+  
+
+  
+}
+
+.p {
+  text-align: center;
+  margin-bottom: 50px;
+}
+.p h2{
+  display: inline;
+  font-family: 'Outfit', sans-serif;
+}
+
+.bar{
+  width: 100%;
+  height: 75px;
+  display: flex;
+  background-color: #000000;
+  top: 0px;
+  position: fixed;
+  justify-content: space-between;
+  z-index: 3;
+}
+    </style>
+</head>
+<body>
+
+  
+  <div class="x">
+    <img src="logo (3).png" alt="">
+  </div>
+
+  <div class="p">
+    <h2 style="color: #000000;"> Red player  </h2>
+    <h2> VS </h2>
+    <h2 style="color: #000000;">  Blue player </h2>
+  </div>
+  
+
+
+    <div id="gameContainer">
+        <button id="startButton" onclick="startGame()">Start Game</button> <br>
+
+        <button id="howtoplaybutton"onclick="showInstructions()"> How to Play </button>
+
+        <div id="instructionsModal" class="modal">
+          <div class="modal-content">
+            <span class="close-button" onclick="hideInstructions()">&times;</span>
+            <h2 style="font-family: 'Urbanist', sans-serif;">rules of play</h2>
+            <p style="font-family: 'Urbanist', sans-serif;">**Those who press start color first and will be able to press all 81 channels. and the next round will randomize the area
+               <br>**If there is a winner in that area, it will not be able <br> to be pressed again and will show the winner's color.
+               <br>**The game ends when either player wins the whole board or if they cannot continue. In which case the game will be a draw.</p>
+          </div>
+        </div>
+      </div>
+      
+</body>
+<script>
+
+function startGame() {
+  window.location.href = "index.html";
+}
+
+function showInstructions() {
+  var modal = document.getElementById("instructionsModal");
+  modal.style.display = "block";
+}
+
+function hideInstructions() {
+  var modal = document.getElementById("instructionsModal");
+  modal.style.display = "none";
+}
+</script>
+</html>

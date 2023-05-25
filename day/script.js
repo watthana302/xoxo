@@ -10,6 +10,18 @@ $(document).ready(function() {/*DNT*/
   for (var i = 0; i < 9; i++) {
    $('.box').prepend('<div class="cell"></div>');
   };
+  $(".random-player").click(function () {
+    var randomNumber = Math.random();
+    if (randomNumber < 0.5) {
+      $(".player1").addClass("current");
+      $(".player-1").addClass("blue");
+      $(".player-2").addClass("red");
+    } else {
+      $(".player2").addClass("current");
+      $(".player-1").addClass("red");
+      $(".player-2").addClass("blue");
+    }
+  });
   
   /** SELECT PLAYER **/
   /*clicking on player1 button gives class current to player 1*/
@@ -167,6 +179,8 @@ $(document).ready(function() {/*DNT*/
       /*announce winner*/
       $('#winner h1').text("It's a draw!").show();
       $('#winner').show();
+      bruhsound.play();
+      $('#winner').append('<button class="restart-button">Restart Game</button>');
     }
   }
   
@@ -220,6 +234,8 @@ $(document).ready(function() {/*DNT*/
     blueMoves = [[],[],[],[],[],[],[],[],[]];
     redMoves = [[],[],[],[],[],[],[],[],[]];
     boxLimit = [[],[],[],[],[],[],[],[],[]];
+    cellIndex =[];
+    boxIndex=[];
     blueGlobal = [];
     redGlobal = [];
     globalLimit = [];
