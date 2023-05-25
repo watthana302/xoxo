@@ -79,6 +79,7 @@ button {
   background-color: #227adf;
 }
 
+
 .blue-overlay {
   background-color: #227adf;
 }
@@ -124,6 +125,7 @@ button {
 .red {
   background-color: #EA2F39;
 }
+
 
 .red-overlay {
   background-color: #e61f26;
@@ -206,14 +208,26 @@ h2{
   height: 50%;
   
 }
-
-.player-title {
+.player-title2 {
   padding-top: 25px;
   text-align: center;
   color: rgb(255, 255, 255);
 }
 
-.player-score {
+.player-score2 {
+  text-align: center;
+  color: rgb(255, 255, 255);
+  font-size: 68px;
+  margin-top: 50px;
+}
+
+.player-title1 {
+  padding-top: 25px;
+  text-align: center;
+  color: rgb(255, 255, 255);
+}
+
+.player-score1 {
   text-align: center;
   color: rgb(255, 255, 255);
   font-size: 68px;

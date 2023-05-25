@@ -29,6 +29,9 @@ $(document).ready(function() {/*DNT*/
     $(this).addClass('current');
     $('.player-1').addClass('blue');
     $('.player-2').addClass('red');
+    $('.player-score1').addClass('blue');
+    $('.player-score2').addClass('red');
+
   });
   
   /*clicking on player2 button gives class current to player 2*/
@@ -36,6 +39,8 @@ $(document).ready(function() {/*DNT*/
     $(this).addClass('current');
     $('.player-1').addClass('red');
     $('.player-2').addClass('blue');
+    $('.player-score1').addClass('red');
+    $('.player-score2').addClass('blue');
   });
   
   
@@ -98,6 +103,7 @@ $(document).ready(function() {/*DNT*/
         }
         /*if true, celebrate*/
         if (blueWinsGame === true) {
+          
           youWin('blue');
         }
         /* check whether this move ends the game in a draw */
@@ -203,23 +209,29 @@ $(document).ready(function() {/*DNT*/
   /*if someone has won the game (this was already verified elsewhere), block the gamefield and display winner banner*/
   function youWin(color) {
     if (color == 'red') {
-      /*block the whole gamefield with red overlay*/
+      
       $('.game-overlay').addClass('red-overlay').show();
-      /*announce winner*/
+      
       $('#winner h1').text('Red wins').show();
       $('#winner').show();
+      $('.player-score1.red').text(parseInt($('.player-score1.red').text()) + 1);
+      $('.player-score2.red').text(parseInt($('.player-score2.red').text()) + 1);
+     
     } else if (color == 'blue') {
-      /*block the whole gamefield with blue overlay*/
+      
       $('.game-overlay').addClass('blue-overlay').show();
-      /*announce winner*/
+      
       $('#winner h1').text('Blue wins').show();
       $('#winner').show();
-      /*if no one wins*/
+      $('.player-score1.blue').text(parseInt($('.player-score1.blue').text()) + 1);
+      $('.player-score2.blue').text(parseInt($('.player-score2.blue').text()) + 1);
+      
     }
+    
     winnersound.play();
     $('#winner').append('<button class="restart-button">Restart Game</button>');
   
-  /* Attach event listener to Restart Game button */
+ 
   $('.restart-button').click(function() {
     location.reload();// Call the newGame() function to restart the game
     $('#winner').hide(); // Hide the winner message
@@ -244,10 +256,10 @@ $(document).ready(function() {/*DNT*/
     $('.cell').removeClass('blue red');
     $('.game-overlay').removeClass('blue-overlay red-overlay');
     $('.overlay').removeClass('blue-overlay red-overlay').addClass('gray-overlay').hide();
-    $('.player1').removeClass('current');
-    $('.player2').removeClass('current');
-    $('.player-1').removeClass('red blue');
-    $('.player-2').removeClass('red blue');
+    
+    $('.player-score1').removeClass('red blue');
+    $('.player-score2').removeClass('red blue');
+    $('#winner').hide(); 
   }
   
   // กำหนดให้ปุ่ม "New Game" มีการเชื่อมต่อกับฟังก์ชัน newGame()
