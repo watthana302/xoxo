@@ -10,6 +10,25 @@ $(document).ready(function() {/*DNT*/
   for (var i = 0; i < 9; i++) {
    $('.box').prepend('<div class="cell"></div>');
   };
+  
+  /** SELECT PLAYER **/
+  /*clicking on player1 button gives class current to player 1*/
+  $('.player1').click(function() {
+    console.log("ผู้เล่นน้ำเงินเริ่ม")
+    $(this).addClass('current');
+    $('.player-1').addClass('blue');
+    $('.player-2').addClass('red');
+    
+  });
+  
+  /*clicking on player2 button gives class current to player 2*/
+  $('.player2').click(function() {
+    console.log("ผู้เล่นแดงเริ่ม")
+    $(this).addClass('current');
+    $('.player-1').addClass('red');
+    $('.player-2').addClass('blue');
+  });
+
   $(".random-player").click(function () {
     var randomNumber = Math.random();
     if (randomNumber < 0.5) {
@@ -23,29 +42,8 @@ $(document).ready(function() {/*DNT*/
     }
   });
   
-  /** SELECT PLAYER **/
-  /*clicking on player1 button gives class current to player 1*/
-  $('.player1').click(function() {
-    $(this).addClass('current');
-    $('.player-1').addClass('blue');
-    $('.player-2').addClass('red');
-    $('.player-score1').addClass('blue');
-    $('.player-score2').addClass('red');
-
-  });
-  
-  /*clicking on player2 button gives class current to player 2*/
-  $('.player2').click(function() {
-    $(this).addClass('current');
-    $('.player-1').addClass('red');
-    $('.player-2').addClass('blue');
-    $('.player-score1').addClass('red');
-    $('.player-score2').addClass('blue');
-  });
-  
-  
   $('.newgame').click(function() {
-    bruhsound.play();
+    console.log("เริ่มเกมใหม่")
     newGame();
   });
   /** GLOBAL VARIABLES for winning conditions **/
@@ -67,79 +65,82 @@ $(document).ready(function() {/*DNT*/
   /* * * * * GAME MECHANICS * * * * * */
   /*when clicking on whichever cell*/
   $('.cell').click(function() {
-    /*if the cell has already been claimed*/
+    console.log("คลิ๊กcell")
     if ($(this).hasClass('blue')||$(this).hasClass('red')){
-      /*display alert*/
+      
       alert('Someone has already claimed this cell!');
-      /*otherwise*/
+      
     } else {
-      /*grab current cell index*/
+    
       var cellIndex = $(this).index();
-      /*grab current box index*/
+      
       var boxIndex = $(this).parent().index();
-      /*if player1 is active, the current cell becomes blue*/
+      
       if ($('.player1').hasClass('current')) {
+        //สีcellที่กด//
         $(this).addClass('blue');
-        /*select the blue array which index matches the current box*/
+        
         var currentArray = blueMoves[boxIndex];
-        /*add cell index to the array*/
+      
         blueMoves[boxIndex].push(cellIndex);
         boxLimit[boxIndex].push(cellIndex);
          var boxLimitCheck = boxLimit[boxIndex].length;
-        /*check whether this move wins the box*/
+        
         let blueWinsBox = isWinner(currentArray);
-        /*if blue wins*/
+     
         if (blueWinsBox == true) {
-          /*block box with blue overlay*/
+          console.log("สีน้ำเงินชนะในช่องนี้")
           $(this).siblings('.overlay').removeClass('gray-overlay').addClass('blue-overlay').show();
-          /*send box index to global array*/
+          
           blueGlobal.push(boxIndex);
           globalLimit.push('globalLimit: ' + boxIndex);
-          /*check whether this box wins the game*/
+          
           var blueWinsGame = isWinner(blueGlobal);
-          /*check whether this box marks a draw*/
+          
         } else if (blueWinsBox == false && (boxLimit[boxIndex].length) == 9) {
           isBoxDraw(boxIndex, this, globalLimit);
         }
-        /*if true, celebrate*/
+       
         if (blueWinsGame === true) {
-          
+          console.log("สีน้ำเงินชนะเกมนี้")
           youWin('blue');
         }
-        /* check whether this move ends the game in a draw */
+        
         isGameDraw(blueWinsGame);
   
-        /*switch player after move*/
+        
         togglePlayer()
   
-      /*if player2 is active*/
+     
       } else if ($('.player2').hasClass('current')) {
-        /*the current cell becomes red*/
+        
         $(this).addClass('red');
-        /*select the red array which index matches the current box*/
+        
         var currentArray = redMoves[boxIndex];
-        /*add cell index to the array*/
+        
         redMoves[boxIndex].push(cellIndex);
         boxLimit[boxIndex].push(cellIndex);
          var boxLimitCheck = boxLimit[boxIndex].length;
-        /*check whether this move wins the box*/
+        
         let redWinsBox = isWinner(currentArray);
-        /*if red wins*/
+      
         if (redWinsBox == true) {
-          /*block box with red overlay*/
+          console.log("สีแดงชนะในช่องนี้")
           $(this).siblings('.overlay').removeClass('gray-overlay').addClass('red-overlay').show();
-          /*send box index to global array*/
+         
           redGlobal.push(boxIndex);
           globalLimit.push(boxIndex);
-          /*check whether this box wins the game*/
+          
           redWinsGame = isWinner(redGlobal);
-          /*check whether this box marks a draw*/
+          
   
         } else if (redWinsBox == false && (boxLimit[boxIndex].length) == 9) {
+          console.log("ช่องนี้เสมอ")
           isBoxDraw(boxIndex, this, globalLimit);
         }
-        /*if true, celebrate*/
+        
         if (redWinsGame == true) {
+          console.log("สีแดงชนะเกมนี้")
           youWin('red');
         }
         /* check whether this move ends the game in a draw */
@@ -148,49 +149,47 @@ $(document).ready(function() {/*DNT*/
         /*switch player after move*/
         togglePlayer()
   
-      /*if no player is active, a starting player has not yet been picked => display alert*/
+       
       } else {
         alert('Choose starting player.')
       }
     } /*else close - */
   
-    /** DYNAMIC OVERLAYS **/
-    /*if there's already an active player AND the cell you picked wasn't already claimed*/
+    
+   
     if (($('.player1').hasClass('current') || $('.player2').hasClass('current')) && (!$(this).hasClass('blue') || !$(this).hasClass('red'))) {
-      /*if the cell you play redirects to a box that has already been won or ended in a draw, all the boxes that are still up for grabs become playable*/
+    
       if ($('.overlay').eq(cellIndex).hasClass('blue-overlay')||$('.overlay').eq(cellIndex).hasClass('red-overlay')||(boxLimit[cellIndex].length) == 9) {
         $('.overlay.gray-overlay:not(.blue-overlay):not(.red-overlay)').hide();
       } else {
-        /*make it so that when you pick a cell, the only playable box for the next move is the one matching the current cell's index*/
+        
+
         $('.overlay').show();
         $('.overlay').eq(cellIndex).hide();
       }
     }
   })
   
-  /* * * * * * FUNCTIONS * * * * * * */
   
-  /* check whether a move completes a box without it being won by anyone */
+  
+  
   function isBoxDraw(boxIndex, element, globalArray) /*element = this*/{
       $(element).siblings('.overlay').removeClass('gray-overlay').addClass('draw-overlay').show();
       globalArray.push(boxIndex);
       isGameDraw(globalArray);
   }
   
-  /* check whether this move wins the game */
+ 
   function isGameDraw(winStatus) {
     if (winStatus == false && globalLimit.length == 9) {
-      /*block the whole gamefield with blue overlay*/
-      $('.game-overlay').addClass('draw-overlay').show();
-      /*announce winner*/
-      $('#winner h1').text("It's a draw!").show();
-      $('#winner').show();
-      bruhsound.play();
-      $('#winner').append('<button class="restart-button">Restart Game</button>');
+      
+      bruh.play();
+      
+      
     }
   }
   
-  /*check whether the numbers in the array match winning conditions*/
+ 
   function isWinner(array) {
     if((array.includes(0))&&(array.includes(1))&&(array.includes(2)) ||
     (array.includes(3))&&(array.includes(4))&&(array.includes(5)) ||
@@ -207,47 +206,41 @@ $(document).ready(function() {/*DNT*/
   }
   
   /*if someone has won the game (this was already verified elsewhere), block the gamefield and display winner banner*/
-  function youWin(color) {
-    if (color == 'red') {
-      
-      $('.game-overlay').addClass('red-overlay').show();
-      
-      $('#winner h1').text('Red wins').show();
-      $('#winner').show();
-      $('.player-score1.red').text(parseInt($('.player-score1.red').text()) + 1);
-      $('.player-score2.red').text(parseInt($('.player-score2.red').text()) + 1);
-     
-    } else if (color == 'blue') {
-      
-      $('.game-overlay').addClass('blue-overlay').show();
-      
-      $('#winner h1').text('Blue wins').show();
-      $('#winner').show();
-      $('.player-score1.blue').text(parseInt($('.player-score1.blue').text()) + 1);
-      $('.player-score2.blue').text(parseInt($('.player-score2.blue').text()) + 1);
-      
-    }
+  var blueScore = 0;
+  var redScore = 0;
+  var score = 1;
+    /*if someone has won the game (this was already verified elsewhere), block the gamefield and display winner banner*/
     
-    winnersound.play();
-    $('#winner').append('<button class="restart-button">Restart Game</button>');
-  
- 
-  $('.restart-button').click(function() {
-    location.reload();// Call the newGame() function to restart the game
-    $('#winner').hide(); // Hide the winner message
-  });
-}
+    
+    
+    function youWin(color) {
+      // ...
+      if (color == 'red') {
+        // ...
+        redScore++;
+        $('#red-score').text(redScore);
+      } else if (color == 'blue') {
+        // ...
+        blueScore++;
+        $('#blue-score').text(blueScore);
+      }
+
+      score++;
+      $('#round-score').text(score);
+      winnersound.play();
+        newGame();
+      // ...
+    }
   
   function togglePlayer() {
     $('.player1').toggleClass('current');
     $('.player2').toggleClass('current');
+    console.log("สลับฝั่ง")
   }
   function newGame() {
     blueMoves = [[],[],[],[],[],[],[],[],[]];
     redMoves = [[],[],[],[],[],[],[],[],[]];
     boxLimit = [[],[],[],[],[],[],[],[],[]];
-    cellIndex =[];
-    boxIndex=[];
     blueGlobal = [];
     redGlobal = [];
     globalLimit = [];
@@ -256,10 +249,7 @@ $(document).ready(function() {/*DNT*/
     $('.cell').removeClass('blue red');
     $('.game-overlay').removeClass('blue-overlay red-overlay');
     $('.overlay').removeClass('blue-overlay red-overlay').addClass('gray-overlay').hide();
-    
-    $('.player-score1').removeClass('red blue');
-    $('.player-score2').removeClass('red blue');
-    $('#winner').hide(); 
+    togglePlayer();
   }
   
   // กำหนดให้ปุ่ม "New Game" มีการเชื่อมต่อกับฟังก์ชัน newGame()

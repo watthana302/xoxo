@@ -15,6 +15,7 @@ margin-left: 100px;
   
   
 }
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@700&family=Foldit&family=Outfit&family=Righteous&family=Rubik+Puddles&family=Sigmar&family=Urbanist:wght@700&display=swap');
 .top{
   width: 100%;
   height: 75px;
@@ -34,6 +35,7 @@ margin-left: 100px;
 }
 
 body {
+  font-family: 'Outfit', sans-serif;
   overflow: hidden;
   background: linear-gradient(#0C134F, #5C469C);
 }
@@ -189,7 +191,23 @@ h2{
   width: 12%;
   
 }
+.round{
+  font-size: 15px;
+  min-width: 150px;
+  min-height: 100px;
+  border-radius: 25px;
+  border: 1px solid black;
+  border-radius: 15px;
+  
+  
+}
+#round-score{
+  color: white;
+  font-size: 60px;
+  margin-top: 2px;
+  text-align: center;
 
+}
 .player-1 {
   margin-left: 10px;
   min-width: 130px;
@@ -220,13 +238,22 @@ h2{
   font-size: 68px;
   margin-top: 50px;
 }
-
-.player-title1 {
+.round-title{
   padding-top: 25px;
   text-align: center;
   color: rgb(255, 255, 255);
 }
-
+.player-title {
+  padding-top: 25px;
+  text-align: center;
+  color: rgb(255, 255, 255);
+}
+.round-score{
+  text-align: center;
+  color: rgb(255, 255, 255);
+  font-size: 68px;
+  margin-top: 50px;
+}
 .player-score1 {
   text-align: center;
   color: rgb(255, 255, 255);
@@ -252,7 +279,19 @@ background-color: green;
   background-color: rgba(255, 1, 242, 0.822);
 }
 
+#blue-score{
+  text-align: center;
+  color: rgb(255, 255, 255);
+  font-size: 68px;
+  margin-top: 50px;
+}
 
+#red-score{
+  text-align: center;
+  color: rgb(255, 255, 255);
+  font-size: 68px;
+  margin-top: 50px;
+}
 
 
 pyro > .before, .pyro > .after {
